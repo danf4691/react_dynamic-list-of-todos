@@ -38,11 +38,10 @@ const getFilteredTodos = (todos: Todo[], filter: Filter, query: string) => {
 export const App: React.FC = () => {
   const { todos, setTodos, filter, query } = React.useContext(TodosContext)!;
   const filteredTodos = getFilteredTodos(todos, filter, query);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    setLoading(true);
     setError(null);
 
     getTodos()
