@@ -10,11 +10,10 @@ interface Props {
 }
 
 export const TodoModal: React.FC<Props> = ({ todo, setSelectedTodo }) => {
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = React.useState(true);
   const [user, setUser] = React.useState<User | null>(null);
 
   useEffect(() => {
-    setLoading(true);
     getUser(todo.userId)
       .then(setUser)
       .catch(() => {
